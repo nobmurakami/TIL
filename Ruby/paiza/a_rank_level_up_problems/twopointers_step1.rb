@@ -2,7 +2,13 @@
 n = gets.to_i
 array = gets.split.map { |i| i.to_i }
 
-sum = 0
-array.each do |a|
-  puts sum += a
+sums = [0]
+n.times do |i|
+  sums << sums[-1] + array[i]
 end
+puts sums
+
+# sum = 0
+# array.each do |a|
+#   puts sum += a
+# end
