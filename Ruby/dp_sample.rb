@@ -10,7 +10,6 @@ dp_table = Array.new(N) { Array.new(S + 1, 0) }
 
 # 1番目のカード(3)
 # 動的計画表0行目の3列目(カードの数字と同じ番号)以降のセルに3を記入
-# なお、本当はこの処理はいらない（次の2番目以降のカードの繰り返し処理の1回目で同様のことを行うため）
 (S + 1).times do |j|
   if num_list[0] <= j
     dp_table[0][j] = num_list[0]
@@ -18,7 +17,7 @@ dp_table = Array.new(N) { Array.new(S + 1, 0) }
 end
 
 # 2番目以降のカード
-N.times do |i|
+(1..N-1).each do |i|
   (S + 1).times do |j|
     tmp_not_choice = dp_table[i-1][j]
     # カード単体の数字が表の列番号より大きかった場合、そのカードは追加せず、セルには一つ上のセルの値をコピペする
@@ -32,6 +31,8 @@ N.times do |i|
     end
   end
 end
+
+# dp_table.each { |i| p i }
 
 # 動的計画表を一つの配列にまとめ、重複を削除した上で昇順で並び替えて出力
 result_list = []
