@@ -37,3 +37,20 @@
 ## ブレークポイント
 - コードの行番号をクリックするとブレークポイントを作成し、シミュレーターの実行中に該当箇所でプログラムを止めることができる
 - ブレークポイントをつかんで行番号以外の場所にドロップすると消える
+
+## テキストフィールドで表示されるキーボードを閉じる方法
+- まず、ViewControllerクラスにUITextFieldDelegateを読み込む
+```Swift
+class ViewController: UIViewController, UITextFieldDelegate {
+```
+- タッチでキーボードを閉じるには、次の関数を定義する
+```Swift
+override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
+}
+```
+- キーボードのリターンを押した時にキーボードを閉じるには、次の関数を定義する
+```Swift
+func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+}
