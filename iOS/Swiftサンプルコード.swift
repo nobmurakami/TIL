@@ -114,12 +114,10 @@ default:
 // "Is it a spicy red pepper?"
 
 
-
-// メソッドや関数は "func"文法を使って宣言する。
-// パラメータ名の付け方に注意。-> で戻り値の型を宣言する
-func sayHello(to personName: String) -> String {
-    let greeting = "こんにちは、" + personName + "さん"
-    return greeting
+// 関数とメソッドの宣言
+// 仮引数に型を指定する
+// 「->」で戻り値の型を指定する
+func greet(person: String, day: String) -> String {
+    return "Hello \(person), today is \(day)."
 }
-// "こんにちは、太郎さん"を出力
-print(sayHello(to: "太郎"))
+greet(person: "Bob", day: "Tuesday")
