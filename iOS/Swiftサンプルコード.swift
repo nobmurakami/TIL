@@ -121,3 +121,10 @@ func greet(person: String, day: String) -> String {
     return "Hello \(person), today is \(day)."
 }
 greet(person: "Bob", day: "Tuesday")
+
+// 上の関数は次のように書くこともできる
+// 呼び出す時の引数の名前を変えることで、英語のように関数の呼び出しを記述できる
+func greet(to person: String, day: String) -> String {
+    return "Hello \(person), today is \(day)."
+}
+greet(to: "Bob", day: "Tuesday")
