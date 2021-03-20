@@ -24,11 +24,22 @@ let theAnswer = 42
 
 
 // 式展開
-// 文字列リテラル"..."の中に\(expr)と記述することで、式exprの内容が展開される
-let リンゴの数 = 3
-let みかんの数 = 5
-let リンゴ説明 = "私は\(リンゴの数)個のリンゴを持っている。"  // ”私は3個のリンゴを持っている。"
-let 果物説明 = "私は\(リンゴの数 + みかんの数)個の果物を持っている。" //"私は8個の果物を持っている。"
+let apples = 3
+let oranges = 5
+let appleSummary = "I have \(apples) apples."
+let fruitSummary = "I have \(apples + oranges) pieces of fruit."
+print(appleSummary) // I have 3 apples.
+print(fruitSummary) // I have 8 pieces of fruit.
+
+
+// 「"""」で囲むと複数行の文字列を作成できる
+let quotation = """
+I said "I have \(apples) apples."
+And then I said "I have \(apples + oranges) pieces of fruit."
+"""
+print(quotation)
+// I said "I have 3 apples."
+// And then I said "I have 8 pieces of fruit."
 
 
 // for文
