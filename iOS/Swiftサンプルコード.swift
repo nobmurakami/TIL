@@ -22,6 +22,12 @@ var implicitDouble = 70.0   // Double型
 let theAnswer = 42
 
 
+// 型の変換
+let label = "The width is "
+let width = 94
+let widthLabel = label + String(width)
+
+
 // 式展開
 let apples = 3
 let oranges = 5
