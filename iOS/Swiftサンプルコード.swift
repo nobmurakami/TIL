@@ -16,7 +16,6 @@ var explicitDouble: Double = 70 // 70.0
 var implicitInteger = 70    // Int型
 var implicitDouble = 70.0   // Double型
 
-
 // 定数
 // let name:Type = value でType型の定数nameにvalueを設定する
 // 型推論可能な場合、型の表記は省略できる
@@ -31,7 +30,6 @@ let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 print(appleSummary) // I have 3 apples.
 print(fruitSummary) // I have 8 pieces of fruit.
 
-
 // 「"""」で囲むと複数行の文字列を作成できる
 let quotation = """
 I said "I have \(apples) apples."
@@ -40,16 +38,6 @@ And then I said "I have \(apples + oranges) pieces of fruit."
 print(quotation)
 // I said "I have 3 apples."
 // And then I said "I have 8 pieces of fruit."
-
-
-// for文
-for i in 0..<10 {
-  print(i)
-} // ログに0から9までの数字が表示される
-
-for i in 0...<10 {
-  print(i)
-} // ログに0から10までの数字が表示される
 
 
 // 配列と辞書（ハッシュ、連想配列）
@@ -81,6 +69,44 @@ let emptyDictionary = [String: Float]()
 // 既に定義されている配列や辞書を空にする時は型の指定は不要
 shoppingList = []
 occupations = [:]
+
+
+// 制御構造
+
+// for文とif文
+let individualScores = [75, 43, 103, 87, 12]
+var teamScore = 0
+for score in individualScores {
+    if score > 50 {
+        teamScore += 3
+    } else {
+        teamScore += 1
+    }
+}
+print(teamScore) // "11"
+
+for i in 0..<10 {
+  print(i)
+} // ログに0から9までの数字が表示される
+
+for i in 0...<10 {
+  print(i)
+} // ログに0から10までの数字が表示される
+
+// switch文とwhere
+let vegetable = "red pepper"
+switch vegetable {
+case "celery":
+    print("Add some raisins and make ants on a log.")
+case "cucumber", "watercress":
+    print("That would make a good tea sandwich.")
+case let x where x.hasSuffix("pepper"):  // 末尾に「pepper」がある場合
+    print("Is it a spicy \(x)?")
+default:
+    print("Everything tastes good in soup.")
+}
+// "Is it a spicy red pepper?"
+
 
 
 // メソッドや関数は "func"文法を使って宣言する。
