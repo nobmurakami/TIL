@@ -54,3 +54,53 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
 }
+```
+
+## 画面遷移
+※View ControllerからNext View Controllerに画面遷移する場合
+
+### ボタンを押した時に画面遷移させる
+1. Storyboardにて、ボタンから次の画面へcontrolをおしながらドラッグ&ドロップする
+2. 表示されるメニューで、ShowやPresent Modallyを選択する
+3. 画面と画面がStoryboard Segueという矢印で接続されたらOK
+
+### 前の画面に戻るボタンのサンプルコード
+```Swift
+@IBAction func back(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+}
+```
+
+### 戻るボタンのタップ時に「unrecognized selector sent to instance」エラーが出る場合
+- 戻るボタンがあるViewControllerのCustom Class設定にて、Moduleが空だとなるっぽい
+- その場合はInherit Module From Targetにチェックを入れるか、Moduleに手打ちすればよい
+
+### ある条件を満たしたら画面遷移させる
+1. Storyboardにて、iPhone画面の上のView Controllerボタン（四角いマーク）から次の画面へ、controlをおしながらドラッグ&ドロップする
+2. 表示されるメニューで、ShowやPresent Modallyを選択する
+3. Storyboard Segueの矢印をクリックし、Identifierに任意の名前を設定する
+4. ViewController.swiftにて、if文の中など、画面遷移をさせたいタイミングで下記のコードを記述する
+```Swift
+performSegue(withIdentifier: "3で設定したIdentifier", sender: nil)
+```
+
+### 値を持たせて画面遷移する
+今の画面の変数を、次の画面の変数に渡したい時は次のような関数を定義する
+```Swift
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let nextVC = segue.destination as! NextViewController
+    nextVC.次の画面の変数B = 今の画面の変数A
+}
+```
+
+### ナビゲーションコントローラーを用いた画面遷移
+1. View Controllerを選択
+2. Editor > Embed In > Navigation Controllerをクリック
+3. View Controllerボタンをcontrolを押しながら次の画面にドラッグ&ドロップする
+4. 表示されるメニューで、ShowやPresent Modallyを選択する
+5. Next View ControllerのIdentity > Storyboard IDに任意の名前を設定し、Use Storyboard IDにチェックを入れる
+6. ViewController.swiftにて、if文の中など、画面遷移をさせたいタイミングで下記のコードを記述する
+```Swift
+let nextVC = storyboard?.instantiateViewController(withIdentifier: "5で設定したStoryboard ID") as! NextViewController
+navigationController?.pushViewController(nextVC, animated: true)
+```
