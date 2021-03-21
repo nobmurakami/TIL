@@ -104,3 +104,28 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 let nextVC = storyboard?.instantiateViewController(withIdentifier: "5で設定したStoryboard ID") as! NextViewController
 navigationController?.pushViewController(nextVC, animated: true)
 ```
+
+## Webサイトの表示
+### ViewにWebサイトを表示する領域を追加する
+- WebKitをインポート
+```Swift
+import WebKit
+```
+- WKWebViewのインスタンスを生成する
+```Swift
+var webView = WKWebView()
+```
+- webViewの表示開始(x, y)、幅、高さを定義する
+```Swift
+webView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height - toolBar.frame.size.height )
+```
+- viewにwebViewをはりつける
+```Swift
+view.addSubview(webView)
+```
+- webViewに表示するURLをロード
+```Swift
+let url = URL(string: "https://www.example.com/")
+let request = URLRequest(url: url!)
+webView.load(request)
+```
