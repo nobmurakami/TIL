@@ -128,3 +128,14 @@ func greet(to person: String, day: String) -> String {
     return "Hello \(person), today is \(day)."
 }
 greet(to: "Bob", day: "Tuesday")
+
+
+// オプショナルバインディング
+// オプショナル型の値がnilではないという判定と、アンラップして別変数への代入を同時に行うこと
+var price: Int? = 100
+
+if let p = price {
+    print("価格：\(p)円")
+} else {
+    print("価格：未定")
+}
