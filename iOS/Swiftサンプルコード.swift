@@ -128,3 +128,45 @@ func greet(to person: String, day: String) -> String {
     return "Hello \(person), today is \(day)."
 }
 greet(to: "Bob", day: "Tuesday")
+
+
+// クロージャ
+// 自分を囲むスコープにある変数を参照する関数のこと(変数をキャプチャする）
+// 関数をインスタンス化したら、それはクロージャになると考えてOK
+// 関数に名前がない無名関数として定義することも可能
+
+// クロージャを作るには以下の文法で作る
+// { (引数) -> 戻り値の型 in 処理
+// }
+
+// 例
+var c1 = { () -> () in print("Hello") }
+c1() //出力：Hello
+
+//クロージャを省略して書く
+var c2 = { () -> Void in print("Hello") }
+c2()
+
+var c3 = { () in print("Hello") }
+c3()
+
+var c4 = { print("Hello") }
+c4()
+
+//変数をキャプチャするクロージャ
+//以下の例では関数innerがクロージャである
+func outer() -> () -> Void {
+    var x = 1
+    
+    func inner() {
+        print(x)
+        x += 1
+    }
+    return inner
+}
+
+var f = outer()
+
+f() //出力：1
+f() //出力：2
+f() //出力：3
