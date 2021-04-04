@@ -1,4 +1,4 @@
-# MySQLでデータベーステーブルを作成する
+# データベーステーブルを作成する
 - データベースを作成する
 ```SQL
 CREATE DATABASE データベース名;
@@ -12,7 +12,7 @@ SHOW DATABASES;
 USE データベース名;
 ```
 - テーブルを作成する
-usersテーブルにidカラムとnameカラムを作る場合の例：
+例：usersテーブルにidカラムとnameカラムを作る
 ```SQL
 CREATE TABLE users (id int, name varchar(20));
 ```
@@ -25,7 +25,25 @@ SHOW TABLES;
 SHOW COLUMNS FROM users;
 ```
 
-# テーブルにデータを挿入する
+# テーブルにデータを挿入する(INSERT)
 ```SQL
 INSERT INTO users (id, name) VALUES (1, 'yamada');
+```
+
+# テーブルからデータを取得する(SELECT)
+例：usersテーブルのidカラムとnameカラムの全てのレコードを取得する
+```SQL
+SELECT id, name FROM users;
+```
+
+# テーブル内の既存データを更新する(UPDATE)
+例：usersテーブルのidが1のレコードを更新する
+```SQL
+UPDATE users SET id = 2, name = 'yamato' WHERE id = 1;
+```
+
+# テーブルのデータを削除する(DELETE)
+例：usersテーブルのidが2のレコードを削除する
+```SQL
+DELETE FROM users WHERE id = 2;
 ```
