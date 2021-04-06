@@ -1,6 +1,5 @@
-# TIL
-Today I Learned<br>
-日々学んだことの記録です
+# TIL(Today I Learned)
+日々学んだことの記録
 
 ## 目次
 ### Ruby
