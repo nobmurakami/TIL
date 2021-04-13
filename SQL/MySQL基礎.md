@@ -40,6 +40,11 @@ SHOW COLUMNS FROM users;
 ```SQL
 ALTER TABLE users ADD COLUMN created_at datetime NOT NULL;
 ```
+## カラム名を変更する
+- 例：テーブルの名前を t1 から t2 に変更する
+```SQL
+ALTER TABLE t1 RENAME t2;
+```
 ## テーブルにデータを挿入する(INSERT)
 ```SQL
 INSERT INTO users (id, name) VALUES (1, 'yamada');
