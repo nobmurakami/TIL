@@ -26,6 +26,7 @@ $new_post = [
 foreach ($posts as $i => $post) {
     if ($i === $target_id) {
 	$posts[$i] = $new_post;
+	break;
     }
 }
 
